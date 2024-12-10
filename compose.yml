@@ -1,0 +1,16 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    restart: always
+    develop:
+      watch:
+        - path: app.js
+          target: /app/app.js
+          action: sync
+        - path: package*.json
+          action: rebuild
+    ports:
+      - "${PORT:-3000}:3000"

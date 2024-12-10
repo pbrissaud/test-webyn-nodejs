@@ -1,12 +1,13 @@
 const express = require('express');
 const app = express();
 const port = 3000;
+const packageInfo = require('./package.json');
 
-app.get('/hello', (req, res) => {
-  res.json({ message: 'Hello, World!' });
+app.get('/hello', (_, res) => {
+  res.json({ message: 'Hello, World!', version: packageInfo.version });
 });
 
-app.get('/health', (req, res) => {
+app.get('/health', (_, res) => {
   res.json({ status: 'ok' });
 });
 
