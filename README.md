@@ -14,7 +14,7 @@ OR
 
 - Node.js (v20)
 
-# Run the app locally
+## Run the app locally
 
 1. Clone the repository
 ```bash
@@ -22,7 +22,7 @@ git clone https://github.com/webyn-ai/hello-world-nodejs-api.git
 cd hello-world-nodejs-api
 ```
 
-## With Docker
+### With Docker
 
 2. Run this compose command
 ```bash
@@ -39,8 +39,7 @@ Port 3000 is exposed by default. You can change the port with environment variab
 PORT=8080 docker-compose up --build --watch
 ```
 
-## With Node.js
-
+### With Node.js
 
 2. Install the dependencies
 ```bash
