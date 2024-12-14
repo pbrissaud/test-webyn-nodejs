@@ -1,7 +1,14 @@
-const createServer = require("./app");
+const createApp = require("./app");
 const supertest = require("supertest");
 
-const server = createServer();
+const app = createApp();
+
+let server;
+
+beforeAll(() => {
+  const randomPort = Math.floor(Math.random() * 1000) + 3000;
+  server = app.listen(randomPort);
+})  
 
 afterAll(done => {
 	server.close(done)

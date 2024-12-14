@@ -3,9 +3,9 @@
     "version": "1.2.6",
     "main": "app.js",
     "scripts": {
-        "dev": "nodemon app.js",
-        "start": "node app.js",
-        "test": "jest"
+        "dev": "nodemon src/server.js",
+        "start": "node src/server.js",
+        "test": "jest src"
     },
     "dependencies": {
         "express": "^4.21.1"

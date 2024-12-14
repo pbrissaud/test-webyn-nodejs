@@ -19,8 +19,8 @@ CMD ["npm", "run", "dev"]
 # BUILD STAGE
 ##############
 FROM base AS build
-RUN npm ci --omit=dev
-COPY . .
+RUN npm ci --omit=dev 
+COPY src src
 
 ##############
 # PROD STAGE
@@ -29,4 +29,4 @@ FROM gcr.io/distroless/nodejs${NODE_VERSION}-debian12:nonroot
 COPY --from=build --chown=nonroot:nonroot /app /app
 WORKDIR /app
 EXPOSE 3000
-CMD ["app.js"]
+CMD ["src/server.js"]
