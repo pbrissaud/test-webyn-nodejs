@@ -18,7 +18,7 @@ jobs:
       - name: Extract pull request title
         run: echo "${{ github.event.pull_request.title }}" > pull-request-title
       - name: Check conventional commit
-        run: npx git-conventional-commits commit-msg-hook pull-request-title
+        run: npx --yes git-conventional-commits commit-msg-hook pull-request-title
 
   test:
     name: Test API
