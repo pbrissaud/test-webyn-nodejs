@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.3.0](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.2.6...v1.3.0) (2024-12-14)
+
+
+### Features
+
+* **terraform:** Add cloud run service ([3ffff77](https://github.com/pbrissaud/test-webyn-nodejs/commit/3ffff77df55b822dc8c73cc36a5b867fdc865368))
+* **terraform:** Add service account for Cloud Run Service ([d1d470d](https://github.com/pbrissaud/test-webyn-nodejs/commit/d1d470d1a4243982dcbee3c3bc05deaa822f8172))
+
+
+### Bug Fixes
+
+* App startup ([eb3dc3f](https://github.com/pbrissaud/test-webyn-nodejs/commit/eb3dc3f57ad41466f43b57cec7a37cc5941a8d9f))
+* **terraform:** Allow unauthenticated access and change port ([ef4faea](https://github.com/pbrissaud/test-webyn-nodejs/commit/ef4faeafb2e33175c238a6adbfd4da16ac619d70))
+* **terraform:** Disable deletion protection ([cf68492](https://github.com/pbrissaud/test-webyn-nodejs/commit/cf68492ae7e4b64d984fcdd1a4518be1487cfd87))
+* **terraform:** Use ports instead of env for container port ([22c93bc](https://github.com/pbrissaud/test-webyn-nodejs/commit/22c93bca6444df0b8845444fc29d3d7b878df6f9))
+* test launch two servers at the same time ([bf53905](https://github.com/pbrissaud/test-webyn-nodejs/commit/bf539055c8c25671141c9c5276d3a35b4a58095d))
+
 ## [1.2.6](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.2.5...v1.2.6) (2024-12-14)
 
 
