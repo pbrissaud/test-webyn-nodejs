@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.2.0...v1.2.1) (2024-12-14)
+
+
+### Bug Fixes
+
+* **CI:** Google AR Authentication ([4fb9a03](https://github.com/pbrissaud/test-webyn-nodejs/commit/4fb9a03e031c2e8568e49f9aeecd4296896cff31))
+
 ## [1.2.0](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.1.0...v1.2.0) (2024-12-14)
 
 
