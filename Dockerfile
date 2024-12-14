@@ -26,7 +26,7 @@ COPY . .
 # PROD STAGE
 ##############
 FROM gcr.io/distroless/nodejs${NODE_VERSION}-debian12:nonroot
-COPY --from=build /app /app
+COPY --from=build --chown=nonroot:nonroot /app /app
 WORKDIR /app
 EXPOSE 3000
 CMD ["app.js"]

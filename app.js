@@ -19,4 +19,6 @@ function createServer() {
   return server;
 }
 
+createServer();
+
 module.exports = createServer;
