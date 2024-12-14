@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.5](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.2.4...v1.2.5) (2024-12-14)
+
+
+### Bug Fixes
+
+* **CI:** Fix registry URL and use variable ([b9fed4b](https://github.com/pbrissaud/test-webyn-nodejs/commit/b9fed4b17008cfb38092351a2d7ed5d0cf7a13b0))
+
 ## [1.2.4](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.2.3...v1.2.4) (2024-12-14)
 
 
