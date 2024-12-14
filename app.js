@@ -1,16 +1,22 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 const port = 3000;
-const packageInfo = require('./package.json');
+const packageInfo = require("./package.json");
 
-app.get('/hello', (_, res) => {
-  res.json({ message: 'Hello, World!', version: packageInfo.version });
-});
+function createServer() {
+  app.get("/hello", (_, res) => {
+    res.json({ message: "Hello World!", version: packageInfo.version });
+  });
 
-app.get('/health', (_, res) => {
-  res.json({ status: 'ok' });
-});
+  app.get("/health", (_, res) => {
+    res.json({ status: "ok" });
+  });
 
-app.listen(port, () => {
-  console.log(`App running on http://localhost:${port}`);
-});
+  const server = app.listen(port, () => {
+    console.log(`App running on http://localhost:${port}`);
+  });
+
+  return server;
+}
+
+module.exports = createServer;
