@@ -12,6 +12,14 @@ resource "google_project_iam_binding" "artifact_registry_push" {
   ]
 }
 
+resource "google_project_iam_binding" "cloud_run_developer" {
+  role    = "roles/run.developer"
+  project = var.project_id
+  members = [
+    "serviceAccount:${google_service_account.github_sa.email}"
+  ]
+}
+
 module "gh_oidc" {
   source  = "terraform-google-modules/github-actions-runners/google//modules/gh-oidc"
   version = "~> 4.0"
