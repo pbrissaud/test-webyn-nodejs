@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.2.1...v1.2.2) (2024-12-14)
+
+
+### Bug Fixes
+
+* **CI:** Upgrade action to v2 ([d2d7d78](https://github.com/pbrissaud/test-webyn-nodejs/commit/d2d7d784b91f1b00d9c0b5b00940098b6f532bc6))
+
 ## [1.2.1](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.2.0...v1.2.1) (2024-12-14)
 
 
