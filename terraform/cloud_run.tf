@@ -25,9 +25,8 @@ resource "google_cloud_run_v2_service" "webyn_service" {
     }
     containers {
       image = "${var.region}-docker.pkg.dev/${var.project_id}/${google_artifact_registry_repository.docker_registry.name}/${var.github_repo}:latest"
-      env {
-        name  = "PORT"
-        value = "3000"
+      ports {
+        container_port = 3000
       }
 
       resources {
