@@ -1,0 +1,8 @@
+---
+convention:
+  commitTypes:
+  - feat
+  - fix
+  - chore
+  - docs
+  - deps
