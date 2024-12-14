@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.3](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.2.2...v1.2.3) (2024-12-14)
+
+
+### Bug Fixes
+
+* **terraform:** set repository in attributes ([1fa632d](https://github.com/pbrissaud/test-webyn-nodejs/commit/1fa632dcedcef6e1f16015e2e349f4fcb7ed460f))
+
 ## [1.2.2](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.2.1...v1.2.2) (2024-12-14)
 
 
