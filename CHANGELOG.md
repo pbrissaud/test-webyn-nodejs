@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.4.1](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.4.0...v1.4.1) (2024-12-14)
+
+
+### Bug Fixes
+
+* **CD:** Set projet and region ([1bab0a2](https://github.com/pbrissaud/test-webyn-nodejs/commit/1bab0a26dd1d228be1db89b5aa71ef358c5dd997))
+* **terraform:** Give permission to Github to deploy new release on Cloud Run ([e1debdb](https://github.com/pbrissaud/test-webyn-nodejs/commit/e1debdb2045e9f584c4b64a100dde60e61d5d839))
+
 ## [1.4.0](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.3.0...v1.4.0) (2024-12-14)
 
 
