@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.2](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.4.1...v1.4.2) (2024-12-14)
+
+
+### Bug Fixes
+
+* **terraform:** Add service account user to github service account ([2751ef9](https://github.com/pbrissaud/test-webyn-nodejs/commit/2751ef9ffd71ea710d431aae237a802ef92416fd))
+
 ## [1.4.1](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.4.0...v1.4.1) (2024-12-14)
 
 
