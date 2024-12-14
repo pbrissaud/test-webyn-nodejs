@@ -57,6 +57,65 @@ npm run dev
 
 ## Features
 
+- Infra as Code with Terraform Cloud for shared state and remote execution
 - Dockerfile for containerization with multi-stage build
 - Distroless Image for minimal and secure container
 - Compose file for running the app with Docker Compose and watch mode
+- Testing with Jest and Supertest
+- Trivy scanning for Docker image security
+- Automatic CI with GitHub Actions (test and scan)
+- Automatic releasing with [Release-Please](https://github.com/googleapis/release-please-action) and Conventional Commits
+- CD with GitHub Actions (docker build and push and deploy to Cloud Run)
+- Keyless authentication to Google Cloud with [Workload Identity Federation](https://cloud.google.com/blog/products/identity-security/enabling-keyless-authentication-from-github-actions?hl=en)
+
+## Bootstrap the project
+
+1. Create a GitHub repository
+
+2. Create a Fine-grained access token with the following scopes:
+  ```
+  secrets: write
+  variables: write
+  ```
+
+3. Create a google cloud project
+
+4. Enable theses APIs: 
+  ```
+  "iam.googleapis.com",
+  "cloudresourcemanager.googleapis.com",
+  "iamcredentials.googleapis.com",
+  "sts.googleapis.com"
+  ````
+
+5. Create a service account for Terraform Cloud with the following roles:
+  ```
+  "roles/iam.workloadIdentityPoolAdmin"
+  "roles/iam.serviceAccountAdmin"
+  "roles/resourcemanager.projectIamAdmin"
+  "roles/artifactregistry.adm"
+  ````
+
+6. Create a JSON key for the service account
+
+7. Create a Terraform Cloud account and a workspace for this repository
+
+8. Set the following variable in the workspace:
+  ```
+  project_id
+  google_credentials (sensitive)
+  github_token (sensitive)
+  github_org
+  github_repo
+  ```
+
+9. Push a commit on the main branch to the repository
+  ````
+  git commit -m "chore(main): init"
+  ````
+
+10. Open terraform cloud and apply the run
+
+11. Merge the PR created by Release Please to create the first release
+
+12. Watch the GitHub Actions workflow to build and deploy the app ! 🚀
