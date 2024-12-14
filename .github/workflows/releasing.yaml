@@ -39,7 +39,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{vars.REGION}}-docker.pkg.dev/${{vars.GOOGLE_PROJECT_ID}}/${{ vars.ARTIFACT_REGISTRY }}/${{ github.event.repository.name }}
+          images: ${{vars.REGION}}-docker.pkg.dev/${{vars.PROJECT_ID}}/${{ vars.ARTIFACT_REGISTRY }}/${{ github.event.repository.name }}
           tags: |
             type=semver,pattern={{version}},value=${{needs.create-release.outputs.tag_name}}
             type=semver,pattern={{major}}.{{minor}},value=${{needs.create-release.outputs.tag_name}}
