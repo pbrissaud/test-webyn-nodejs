@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.6](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.2.5...v1.2.6) (2024-12-14)
+
+
+### Bug Fixes
+
+* **CI:** google project var name ([e79fbbc](https://github.com/pbrissaud/test-webyn-nodejs/commit/e79fbbce15576ec79584c1a9852bcc075d926e7a))
+
 ## [1.2.5](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.2.4...v1.2.5) (2024-12-14)
 
 
