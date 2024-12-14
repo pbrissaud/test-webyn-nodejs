@@ -36,6 +36,16 @@ resource "google_cloud_run_v2_service" "webyn_service" {
         }
       }
 
+      startup_probe {
+        initial_delay_seconds = 5
+        timeout_seconds = 1
+        period_seconds = 10
+        failure_threshold = 1
+        http_get {
+          path = "/health"
+        }
+      }
+
       liveness_probe {
         http_get {
           path = "/health"
