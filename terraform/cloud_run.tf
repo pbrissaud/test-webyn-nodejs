@@ -4,8 +4,8 @@ resource "google_service_account" "cloud_run_sa" {
 }
 
 resource "google_project_iam_member" "cloud_run_artifact_registry_access" {
-  member = "serviceAccount:${google_service_account.cloud_run_sa.email}"
-  role   = "roles/artifactregistry.reader"
+  member  = "serviceAccount:${google_service_account.cloud_run_sa.email}"
+  role    = "roles/artifactregistry.reader"
   project = var.project_id
 }
 
@@ -19,12 +19,27 @@ resource "google_cloud_run_v2_service" "webyn_service" {
   template {
     service_account = google_service_account.cloud_run_sa.email
 
+    scaling {
+      min_instance_count = 1
+      max_instance_count = 50
+    }
     containers {
       image = "${var.region}-docker.pkg.dev/${var.project_id}/${google_artifact_registry_repository.docker_registry.name}/${var.github_repo}:latest"
+      env {
+        name  = "PORT"
+        value = "3000"
+      }
+
       resources {
         limits = {
           cpu    = "1000m"
           memory = "512Mi"
+        }
+      }
+
+      liveness_probe {
+        http_get {
+          path = "/health"
         }
       }
     }
@@ -34,4 +49,13 @@ resource "google_cloud_run_v2_service" "webyn_service" {
     type    = "TRAFFIC_TARGET_ALLOCATION_TYPE_LATEST"
     percent = 100
   }
+}
+
+resource "google_cloud_run_service_iam_binding" "webyn_service" {
+  location = google_cloud_run_v2_service.webyn_service.location
+  service  = google_cloud_run_v2_service.webyn_service.name
+  role     = "roles/run.invoker"
+  members = [
+    "allUsers"
+  ]
 }
