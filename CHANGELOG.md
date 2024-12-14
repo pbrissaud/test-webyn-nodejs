@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.4](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.2.3...v1.2.4) (2024-12-14)
+
+
+### Bug Fixes
+
+* **CI:** disable buildx ([b4072d4](https://github.com/pbrissaud/test-webyn-nodejs/commit/b4072d45dc17121238bd3fc687b65d6b23cc8b1f))
+
 ## [1.2.3](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.2.2...v1.2.3) (2024-12-14)
 
 
