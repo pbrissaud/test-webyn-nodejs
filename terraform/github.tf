@@ -19,8 +19,8 @@ module "gh_oidc" {
   provider_id = "webyn-provider"
   sa_mapping = {
     "github-service-account" = {
-      sa_name   = "projects/${var.project_id}/serviceAccounts/${google_service_account.github_sa.email}"
-      attribute = "attribute.repository/${var.github_org}/<repo>}"
+      sa_name   = google_service_account.github_sa.name
+      attribute = "attribute.repository/user/<repo>}"
     }
   }
 }
