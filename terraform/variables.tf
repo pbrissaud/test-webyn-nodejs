@@ -6,7 +6,7 @@ variable "project_id" {
 variable "region" {
   description = "The region to deploy resources"
   type        = string
-  default     = "europe-west-9"
+  default     = "europe-west9"
 }
 
 variable "google_credentials" {
