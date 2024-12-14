@@ -49,13 +49,9 @@ jobs:
             type=semver,pattern={{major}}.{{minor}},value=${{needs.create-release.outputs.tag_name}}
             type=semver,pattern={{major}},value=${{needs.create-release.outputs.tag_name}}
 
-      - name: Echo provider name
-        run: echo ${{ secrets.PROVIDER_NAME}} | sed 's/./& /g'
-
       - name: Login to Google Cloud Registry
-        uses: 'google-github-actions/auth@v2'
+        uses: 'google-github-actions/auth@v1'
         with:
-          token_format: 'access_token'
           workload_identity_provider: ${{ secrets.PROVIDER_NAME }}
           service_account: ${{ secrets.SA_EMAIL }}
 
