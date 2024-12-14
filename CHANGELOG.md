@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.2.0](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.1.0...v1.2.0) (2024-12-14)
+
+
+### Features
+
+* **CI:** Build and push Docker image on new release ([#11](https://github.com/pbrissaud/test-webyn-nodejs/issues/11)) ([ce32f95](https://github.com/pbrissaud/test-webyn-nodejs/commit/ce32f95b32f648ca19ef4c06984457ae357e8fa5))
+
+
+### Bug Fixes
+
+* **CI:** set release type ([#9](https://github.com/pbrissaud/test-webyn-nodejs/issues/9)) ([29c3437](https://github.com/pbrissaud/test-webyn-nodejs/commit/29c3437f2752d24b9ebc201a2b81e96947a3f8dd))
+* **terraform:** update attribute name ([b015375](https://github.com/pbrissaud/test-webyn-nodejs/commit/b01537572b6bd56d1784dfb07fc808ffb5ef1f05))
+
 ## [1.1.0](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.0.0...v1.1.0) (2024-12-14)
 
 
