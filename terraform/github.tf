@@ -24,7 +24,7 @@ module "gh_oidc" {
   sa_mapping = {
     (google_service_account.github_sa.account_id) = {
       sa_name   = google_service_account.github_sa.name
-      attribute = "attribute.repository/user/repo"
+      attribute = "attribute.repository/${var.github_org}/${var.github_repo}"
     }
   }
 }
