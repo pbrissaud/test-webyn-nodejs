@@ -20,6 +20,14 @@ resource "google_project_iam_binding" "cloud_run_developer" {
   ]
 }
 
+resource "google_project_iam_binding" "service_account_user" {
+  role    = "roles/iam.serviceAccountUser"
+  project = var.project_id
+  members = [
+    "serviceAccount:${google_service_account.github_sa.email}"
+  ]
+}
+
 module "gh_oidc" {
   source  = "terraform-google-modules/github-actions-runners/google//modules/gh-oidc"
   version = "~> 4.0"
