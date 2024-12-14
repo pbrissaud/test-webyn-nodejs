@@ -15,9 +15,9 @@ variable "google_credentials" {
 }
 
 variable "github_org" {
-  type       = string
+  type        = string
   description = "The GitHub organization name"
-  default = "pbrissaud" 
+  default     = "pbrissaud"
 }
 
 variable "github_repo" {

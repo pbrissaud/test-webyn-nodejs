@@ -13,7 +13,7 @@ resource "google_project_iam_binding" "artifact_registry_push" {
 }
 
 module "gh_oidc" {
-  source      = "terraform-google-modules/github-actions-runners/google//modules/gh-oidc"
+  source  = "terraform-google-modules/github-actions-runners/google//modules/gh-oidc"
   version = "~> 4.0"
 
   project_id  = var.project_id
@@ -30,31 +30,31 @@ module "gh_oidc" {
 }
 
 resource "github_actions_variable" "gh_variable_project" {
-  repository = var.github_repo
+  repository    = var.github_repo
   variable_name = "PROJECT_ID"
-  value = var.project_id
+  value         = var.project_id
 }
 
 resource "github_actions_variable" "gh_variable_region" {
-  repository = var.github_repo
+  repository    = var.github_repo
   variable_name = "REGION"
-  value = var.region
+  value         = var.region
 }
 
 resource "github_actions_variable" "gh_variable_artfiact_registry" {
-  repository = var.github_repo
+  repository    = var.github_repo
   variable_name = "ARTIFACT_REGISTRY"
-  value = google_artifact_registry_repository.docker_registry.name
+  value         = google_artifact_registry_repository.docker_registry.name
 }
 
 resource "github_actions_secret" "gh_secret_provider" {
-  repository       = var.github_repo
-  secret_name      = "PROVIDER_NAME"
-  plaintext_value  = module.gh_oidc.provider_name
+  repository      = var.github_repo
+  secret_name     = "PROVIDER_NAME"
+  plaintext_value = module.gh_oidc.provider_name
 }
 
 resource "github_actions_secret" "gh_secret_sa" {
-  repository       = var.github_repo
-  secret_name      = "SA_EMAIL"
-  plaintext_value  = google_service_account.github_sa.email
+  repository      = var.github_repo
+  secret_name     = "SA_EMAIL"
+  plaintext_value = google_service_account.github_sa.email
 }
