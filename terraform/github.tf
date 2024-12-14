@@ -29,6 +29,24 @@ module "gh_oidc" {
   }
 }
 
+resource "github_actions_variable" "gh_variable_project" {
+  repository = var.github_repo
+  variable_name = "PROJECT_ID"
+  value = var.project_id
+}
+
+resource "github_actions_variable" "gh_variable_region" {
+  repository = var.github_repo
+  variable_name = "REGION"
+  value = var.region
+}
+
+resource "github_actions_variable" "gh_variable_artfiact_registry" {
+  repository = var.github_repo
+  variable_name = "ARTIFACT_REGISTRY"
+  value = google_artifact_registry_repository.docker_registry.name
+}
+
 resource "github_actions_secret" "gh_secret_provider" {
   repository       = var.github_repo
   secret_name      = "PROVIDER_NAME"
