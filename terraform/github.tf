@@ -15,10 +15,12 @@ resource "google_project_iam_binding" "artifact_registry_push" {
 module "gh_oidc" {
   source      = "terraform-google-modules/github-actions-runners/google//modules/gh-oidc"
   version = "~> 4.0"
-  
+
   project_id  = var.project_id
   pool_id     = "webyn-pool"
   provider_id = "webyn-provider"
+
+  attribute_condition = "attribute.repository==assertion.repository"
   sa_mapping = {
     (google_service_account.github_sa.account_id) = {
       sa_name   = google_service_account.github_sa.name
