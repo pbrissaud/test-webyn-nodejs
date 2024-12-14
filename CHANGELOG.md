@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.4.0](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.3.0...v1.4.0) (2024-12-14)
+
+
+### Features
+
+* **CD:** Auto deploy last image on Cloud Run ([74239e4](https://github.com/pbrissaud/test-webyn-nodejs/commit/74239e437dd1015bbb463ab8995caa8e296c7dbc))
+* **terraform:** Add startup probe ([0d85ee3](https://github.com/pbrissaud/test-webyn-nodejs/commit/0d85ee307b92c23bcd39bdd37f6469b65f73d0ef))
+
 ## [1.3.0](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.2.6...v1.3.0) (2024-12-14)
 
 
