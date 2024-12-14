@@ -14,7 +14,7 @@ resource "google_cloud_run_v2_service" "webyn_service" {
   name                = var.github_repo
   project             = var.project_id
   location            = var.region
-  deletion_protection = true
+  deletion_protection = false
   ingress             = "INGRESS_TRAFFIC_ALL"
   template {
     service_account = google_service_account.cloud_run_sa.email
