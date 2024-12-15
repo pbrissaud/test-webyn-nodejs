@@ -9,6 +9,12 @@ resource "google_project_iam_member" "cloud_run_artifact_registry_access" {
   project = var.project_id
 }
 
+resource "google_project_iam_member" "cloud_run_service_account_user" {
+  member  = "serviceAccount:${google_service_account.cloud_run_sa.email}"
+  role    = "roles/iam.serviceAccountUser"
+  project = var.project_id
+}
+
 
 resource "google_cloud_run_v2_service" "webyn_service" {
   name                = var.github_repo
