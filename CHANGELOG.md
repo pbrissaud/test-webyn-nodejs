@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.5.2](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.5.1...v1.5.2) (2024-12-15)
+
+
+### Bug Fixes
+
+* **CD:** Command to get lat deployment ([e4e7877](https://github.com/pbrissaud/test-webyn-nodejs/commit/e4e7877844eb95ca6e8240b5d58fce29e7f90691))
+* **terraform:** Add default blue tag for last deployment ([56c33c8](https://github.com/pbrissaud/test-webyn-nodejs/commit/56c33c829cbf45a2a1cae81eeb5f3f6217df9147))
+* **terraform:** Add IAM role for Cloud Run service account user ([f020ddb](https://github.com/pbrissaud/test-webyn-nodejs/commit/f020ddb82ea85db12d51f2cd345f68b1b92fc1c4))
+* **terraform:** Dependency between cloud run service and IAM binding ([bc5224a](https://github.com/pbrissaud/test-webyn-nodejs/commit/bc5224a351856c27bc62c8d38a4aedbe307b3ee7))
+* **terraform:** Dependency between cloud run service and IAM binding ([89fcbc8](https://github.com/pbrissaud/test-webyn-nodejs/commit/89fcbc89f16a653e8adc51f2ba8f9a85886f9738))
+* **terraform:** Give more permission to Github action ([44bfd41](https://github.com/pbrissaud/test-webyn-nodejs/commit/44bfd415a6594ec482e91d0278e2aa20fcb2e21c))
+* **terraform:** Remove tag from Cloud Run traffic allocation ([913f4cb](https://github.com/pbrissaud/test-webyn-nodejs/commit/913f4cb9b3455a5dc0dcb283a3e573f5c392f184))
+
 ## [1.5.1](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.5.0...v1.5.1) (2024-12-15)
 
 
