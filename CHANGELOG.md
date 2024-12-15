@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.1](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.5.0...v1.5.1) (2024-12-15)
+
+
+### Bug Fixes
+
+* **CD:** Blue/green deployment ([29e5779](https://github.com/pbrissaud/test-webyn-nodejs/commit/29e57796cb11b24bbe817042189862f0b8e059ab))
+
 ## [1.5.0](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.4.3...v1.5.0) (2024-12-15)
 
 
