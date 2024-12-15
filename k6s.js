@@ -12,7 +12,7 @@ export let options = {
 
 export default function () {
   const url = `${__ENV.URL}`;
-  const res = http.get(url);
+  const res = http.get(`${url}/hello`);
 
   // Vérifiez que le service répond correctement
   check(res, {
