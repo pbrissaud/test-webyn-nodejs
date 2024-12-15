@@ -15,7 +15,6 @@ resource "google_project_iam_member" "cloud_run_service_account_user" {
   project = var.project_id
 }
 
-
 resource "google_cloud_run_v2_service" "webyn_service" {
   name                = var.github_repo
   project             = var.project_id
@@ -63,13 +62,14 @@ resource "google_cloud_run_v2_service" "webyn_service" {
   traffic {
     type    = "TRAFFIC_TARGET_ALLOCATION_TYPE_LATEST"
     percent = 100
-
+    tag = "blue"
   }
 }
 
 resource "google_cloud_run_service_iam_binding" "webyn_service" {
   location = google_cloud_run_v2_service.webyn_service.location
   service  = google_cloud_run_v2_service.webyn_service.name
+  depends_on = [google_cloud_run_v2_service.webyn_service]
   role     = "roles/run.invoker"
   members = [
     "allUsers"
