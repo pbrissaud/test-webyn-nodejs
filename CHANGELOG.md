@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.3](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.5.2...v1.5.3) (2024-12-15)
+
+
+### Bug Fixes
+
+* **CD:** typo in gcloud command ([c3e436e](https://github.com/pbrissaud/test-webyn-nodejs/commit/c3e436e25084cbeb0921c9304afc0f69407268d2))
+
 ## [1.5.2](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.5.1...v1.5.2) (2024-12-15)
 
 
