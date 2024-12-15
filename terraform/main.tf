@@ -13,6 +13,16 @@ terraform {
       version = "6.4.0"
     }
   }
+
+  cloud {
+    organization = "Webyn"
+    hostname     = "app.terraform.io"
+
+    workspaces {
+      project = "default"
+      name    = "test-webyn-nodejs"
+    }
+  }
 }
 
 provider "google" {

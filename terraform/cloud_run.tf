@@ -21,6 +21,13 @@ resource "google_cloud_run_v2_service" "webyn_service" {
   location            = var.region
   deletion_protection = false
   ingress             = "INGRESS_TRAFFIC_ALL"
+  depends_on = [
+    google_artifact_registry_repository.docker_registry,
+    google_service_account.cloud_run_sa,
+    google_project_iam_member.cloud_run_artifact_registry_access,
+    google_project_iam_member.cloud_run_service_account_user
+  ]
+
   template {
     service_account = google_service_account.cloud_run_sa.email
 
@@ -43,9 +50,9 @@ resource "google_cloud_run_v2_service" "webyn_service" {
 
       startup_probe {
         initial_delay_seconds = 5
-        timeout_seconds = 1
-        period_seconds = 10
-        failure_threshold = 1
+        timeout_seconds       = 1
+        period_seconds        = 10
+        failure_threshold     = 1
         http_get {
           path = "/health"
         }
@@ -62,15 +69,15 @@ resource "google_cloud_run_v2_service" "webyn_service" {
   traffic {
     type    = "TRAFFIC_TARGET_ALLOCATION_TYPE_LATEST"
     percent = 100
-    tag = "blue"
+    tag     = "blue"
   }
 }
 
 resource "google_cloud_run_service_iam_binding" "webyn_service" {
-  location = google_cloud_run_v2_service.webyn_service.location
-  service  = google_cloud_run_v2_service.webyn_service.name
+  location   = google_cloud_run_v2_service.webyn_service.location
+  service    = google_cloud_run_v2_service.webyn_service.name
   depends_on = [google_cloud_run_v2_service.webyn_service]
-  role     = "roles/run.invoker"
+  role       = "roles/run.invoker"
   members = [
     "allUsers"
   ]
