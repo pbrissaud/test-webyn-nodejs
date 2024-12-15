@@ -124,7 +124,7 @@ jobs:
       - name: Set green tag to new revision
         id: set-tags
         run: |
-          LATEST=$(gcloud run services list --region ${{vars.REGION}} --project ${{vars.PROJECT_ID}} --service=${{github.event.repository.name}} --sort-by="~createTime" --limit=1 --format="value(metadata.name)")
+          LATEST=$(gcloud run revisions list --region ${{vars.REGION}} --project ${{vars.PROJECT_ID}} --service=${{github.event.repository.name}} --sort-by="~createTime" --limit=1 --format="value(metadata.name)")
           gcloud run services update-traffic ${{github.event.repository.name}} ---region ${{vars.REGION}} --project ${{vars.PROJECT_ID}} --set-tags green=${LATEST}
           echo "latest=${LATEST}" >> "$GITHUB_OUTPUT"
 
