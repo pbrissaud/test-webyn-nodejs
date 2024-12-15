@@ -92,4 +92,4 @@ jobs:
           service: ${{ github.event.repository.name }}
           region: ${{vars.REGION}}
           project_id: ${{vars.PROJECT_ID}}
-          image: ${{vars.REGION}}-docker.pkg.dev/${{vars.PROJECT_ID}}/${{ vars.ARTIFACT_REGISTRY }}/${{ github.event.repository.name }}:${{needs.docker.outputs.image_digest}}
+          image: ${{vars.REGION}}-docker.pkg.dev/${{vars.PROJECT_ID}}/${{ vars.ARTIFACT_REGISTRY }}/${{ github.event.repository.name }}@${{needs.docker.outputs.image_digest}}
