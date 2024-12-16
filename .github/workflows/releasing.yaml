@@ -153,4 +153,4 @@ jobs:
         if: steps['blue-green'].outcome == 'success'
         run: |
           gcloud run services update-traffic ${{github.event.repository.name}} --region ${{vars.REGION}} --project ${{vars.PROJECT_ID}} --remove-tags blue,green
-          gcloud run services update-traffic ${{github.event.repository.name}} ---region ${{vars.REGION}} --project ${{vars.PROJECT_ID}} --set-tags blue=${{steps.set-tags.outputs.latest}}
+          gcloud run services update-traffic ${{github.event.repository.name}} --region ${{vars.REGION}} --project ${{vars.PROJECT_ID}} --set-tags blue=${{steps.set-tags.outputs.latest}}
