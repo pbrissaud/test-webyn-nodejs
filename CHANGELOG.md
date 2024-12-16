@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.6](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.5.5...v1.5.6) (2024-12-16)
+
+
+### Bug Fixes
+
+* **workflow:** update blue-green deployment to identify backup revision and adjust traffic settings ([8f4ed53](https://github.com/pbrissaud/test-webyn-nodejs/commit/8f4ed53386495a98a851ab6b82f01e053dcfab95))
+
 ## [1.5.5](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.5.4...v1.5.5) (2024-12-16)
 
 
