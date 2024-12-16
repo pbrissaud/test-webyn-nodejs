@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.7](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.5.6...v1.5.7) (2024-12-16)
+
+
+### Bug Fixes
+
+* **workflow:** add backup revision output to deployment workflow ([eae2ad2](https://github.com/pbrissaud/test-webyn-nodejs/commit/eae2ad25892884df3be7b3b57a93c10aec6ae744))
+
 ## [1.5.6](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.5.5...v1.5.6) (2024-12-16)
 
 
