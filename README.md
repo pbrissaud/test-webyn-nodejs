@@ -67,6 +67,7 @@ npm run dev
 - Automatic releasing with [Release-Please](https://github.com/googleapis/release-please-action) and Conventional Commits
 - CD with GitHub Actions (docker build and push and deploy to Cloud Run)
 - Keyless authentication to Google Cloud with [Workload Identity Federation](https://cloud.google.com/blog/products/identity-security/enabling-keyless-authentication-from-github-actions?hl=en)
+- Automatic blue-green deployment with k6 checks
 
 ## Bootstrap the project
 
@@ -94,6 +95,7 @@ npm run dev
   "roles/iam.serviceAccountAdmin"
   "roles/resourcemanager.projectIamAdmin"
   "roles/artifactregistry.adm"
+  "roles/run.admin"
   ````
 
 6. Create a JSON key for the service account
