@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.5.4](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.5.3...v1.5.4) (2024-12-16)
+
+
+### Bug Fixes
+
+* **k6s:** update load test configuration ([c012a6f](https://github.com/pbrissaud/test-webyn-nodejs/commit/c012a6fe6ecc5ad7fc46125d959fe52e9397bd7e))
+* **workflow:** correct gcloud command for updating traffic tags ([618a7d8](https://github.com/pbrissaud/test-webyn-nodejs/commit/618a7d8808cd60d4fa17f5054cb3ea0cc09f0176))
+
 ## [1.5.3](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.5.2...v1.5.3) (2024-12-15)
 
 

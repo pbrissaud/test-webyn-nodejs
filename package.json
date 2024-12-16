@@ -1,6 +1,6 @@
 {
     "name": "hello-world-api",
-    "version": "1.5.3",
+    "version": "1.5.4",
     "main": "app.js",
     "scripts": {
         "dev": "nodemon src/server.js",
