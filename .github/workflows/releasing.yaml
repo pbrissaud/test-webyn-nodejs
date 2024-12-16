@@ -121,21 +121,20 @@ jobs:
           sudo apt-get update
           sudo apt-get install k6
 
-      - name: Set green tag to new revision
-        id: set-tags
+      - name: Identify a backup revision
+        id: backup
         run: |
-          LATEST=$(gcloud run revisions list --region ${{vars.REGION}} --project ${{vars.PROJECT_ID}} --service=${{github.event.repository.name}} --sort-by="~createTime" --limit=1 --format="value(metadata.name)")
-          gcloud run services update-traffic ${{github.event.repository.name}} --region ${{vars.REGION}} --project ${{vars.PROJECT_ID}} --set-tags green=${LATEST}
-          echo "latest=${LATEST}" >> "$GITHUB_OUTPUT"
+          REVISION=$(gcloud run revisions list --region ${{vars.REGION}} --project ${{vars.PROJECT_ID}} --service=${{github.event.repository.name}} --sort-by="~traffic" --limit=1 --format="value(metadata.name)")
+          echo "Backup revision set to ${REVISION}"
+          echo "revision=${REVISION}" >> "$GITHUB_OUTPUT"
 
       - name: Gradually increase traffic
         id: blue-green
         continue-on-error: true
         run: |
-          echo ${{ needs.deploy.outputs.url }}
           for traffic in 10 25 50 75 100; do
             echo "Shifting ${traffic}% traffic to the new revision"
-            gcloud run services update-traffic ${{github.event.repository.name}} --to-tags green=${traffic} --region ${{vars.REGION}} --project ${{vars.PROJECT_ID}}
+            gcloud run services update-traffic ${{github.event.repository.name}} --region ${{vars.REGION}} --project ${{vars.PROJECT_ID}} --to-revisions=LATEST=${traffic}
             URL=${{ needs.deploy.outputs.url }} k6 run k6s.js
             
             if [ $? -ne 0 ]; then
@@ -147,10 +146,4 @@ jobs:
       - name: Revert revision if failure
         if: steps['blue-green'].outcome == 'failure'
         run: |
-          gcloud run services update-traffic ${{github.event.repository.name}} --to-tags green=0 --region ${{vars.REGION}} --project ${{vars.PROJECT_ID}}
-
-      - name: Swap tags
-        if: steps['blue-green'].outcome == 'success'
-        run: |
-          gcloud run services update-traffic ${{github.event.repository.name}} --region ${{vars.REGION}} --project ${{vars.PROJECT_ID}} --remove-tags blue,green
-          gcloud run services update-traffic ${{github.event.repository.name}} --region ${{vars.REGION}} --project ${{vars.PROJECT_ID}} --set-tags blue=${{steps.set-tags.outputs.latest}}
+          gcloud run services update-traffic ${{github.event.repository.name}} --region ${{vars.REGION}} --project ${{vars.PROJECT_ID}} --to-revisions=${{steps.backup.outputs.revision}}=100
