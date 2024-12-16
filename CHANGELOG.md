@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.5](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.5.4...v1.5.5) (2024-12-16)
+
+
+### Bug Fixes
+
+* **cloud_run:** remove traffic tag from service configuration ([2690bd7](https://github.com/pbrissaud/test-webyn-nodejs/commit/2690bd764e8bb5423a160ac7aa201d448cad35da))
+
 ## [1.5.4](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.5.3...v1.5.4) (2024-12-16)
 
 
