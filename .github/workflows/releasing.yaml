@@ -77,6 +77,7 @@ jobs:
     needs: docker
     outputs:
       url: ${{ steps.deploy.outputs.url }}
+      backup_revision: ${{ steps.backup.outputs.revision }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -87,6 +88,13 @@ jobs:
         with:
           workload_identity_provider: ${{ secrets.PROVIDER_NAME }}
           service_account: ${{ secrets.SA_EMAIL }}
+
+      - name: Identify a backup revision
+        id: backup
+        run: |
+          REVISION=$(gcloud run revisions list --region ${{vars.REGION}} --project ${{vars.PROJECT_ID}} --service=${{github.event.repository.name}} --sort-by="~traffic" --limit=1 --format="value(metadata.name)")
+          echo "Backup revision set to ${REVISION}"
+          echo "revision=${REVISION}" >> "$GITHUB_OUTPUT"
 
       - name: Deploy to Cloud Run
         uses: google-github-actions/deploy-cloudrun@v2
@@ -121,13 +129,6 @@ jobs:
           sudo apt-get update
           sudo apt-get install k6
 
-      - name: Identify a backup revision
-        id: backup
-        run: |
-          REVISION=$(gcloud run revisions list --region ${{vars.REGION}} --project ${{vars.PROJECT_ID}} --service=${{github.event.repository.name}} --sort-by="~traffic" --limit=1 --format="value(metadata.name)")
-          echo "Backup revision set to ${REVISION}"
-          echo "revision=${REVISION}" >> "$GITHUB_OUTPUT"
-
       - name: Gradually increase traffic
         id: blue-green
         continue-on-error: true
@@ -146,4 +147,4 @@ jobs:
       - name: Revert revision if failure
         if: steps['blue-green'].outcome == 'failure'
         run: |
-          gcloud run services update-traffic ${{github.event.repository.name}} --region ${{vars.REGION}} --project ${{vars.PROJECT_ID}} --to-revisions=${{steps.backup.outputs.revision}}=100
+          gcloud run services update-traffic ${{github.event.repository.name}} --region ${{vars.REGION}} --project ${{vars.PROJECT_ID}} --to-revisions=${{needs.deployment.outputs.backup_revision}}=100
