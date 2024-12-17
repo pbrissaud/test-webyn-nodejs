@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.5.7...v1.6.0) (2024-12-17)
+
+
+### Features
+
+* **app:** simulate internal server error in /hello endpoint ([#30](https://github.com/pbrissaud/test-webyn-nodejs/issues/30)) ([1dc910f](https://github.com/pbrissaud/test-webyn-nodejs/commit/1dc910f7b82f41f73250c47268c18e49f7982276))
+
 ## [1.5.7](https://github.com/pbrissaud/test-webyn-nodejs/compare/v1.5.6...v1.5.7) (2024-12-16)
 
 
